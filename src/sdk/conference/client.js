@@ -326,6 +326,12 @@ export const ConferenceClient = function(config, signalingImpl) {
     },
   });
 
+  this.createRemoteStream = function (stream) { 
+    let remoteStream = createRemoteStream(stream); 
+    remoteStreams.set(stream.id, createRemoteStream(stream)); 
+    return remoteStream; 
+  }
+
   /**
    * @function join
    * @instance
